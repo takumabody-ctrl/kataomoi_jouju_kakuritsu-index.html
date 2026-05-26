@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>片思い成就確率診断｜告白する前に読む数字｜無料</title>
+<meta name="description" content="占いじゃない、行動心理学ベースの4軸で片思いの成就確率を数値化。フェーズ判定・告白タイミング・シナリオ予測まで一気に出す無料診断ツール。">
+<meta name="theme-color" content="#0a0a0f">
+<meta property="og:title" content="片思い成就確率診断｜告白する前に読む数字">
+<meta property="og:description" content="告白の成功率は平均53%。でも、あなたのケースは？">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: #0a0a0f;
+    color: #f1f5f9;
+    line-height: 1.7;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.12), transparent 50%),
+      radial-gradient(circle at 85% 55%, rgba(251, 146, 60, 0.06), transparent 55%),
+      radial-gradient(circle at 50% 100%, rgba(251, 191, 36, 0.05), transparent 60%);
+    background-attachment: fixed;
+    position: relative;
+  }
+  body::before {
+    content: ''; position: fixed; inset: 0;
+    background: repeating-linear-gradient(0deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px);
+    pointer-events: none; z-index: 1;
+  }
+  .container { max-width: 760px; margin: 0 auto; padding: 16px; position: relative; z-index: 2; }
+
+  /* 起動オーバーレイ */
+  .boot-overlay {
+    position: fixed; inset: 0; background: #0a0a0f; z-index: 999;
+    display: flex; align-items: center; justify-content: center; flex-direction: column;
+    animation: bootFadeOut 2.4s ease forwards;
+  }
+  @keyframes bootFadeOut {
+    0%, 60% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; pointer-events: none; }
+  }
+  .boot-overlay .pre-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(14px, 3.8vw, 22px);
+    color: #7dd3fc;
+    letter-spacing: 0.25em;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+    font-weight: 900; text-align: center; line-height: 1.5;
+    overflow: hidden; border-right: 2px solid #38bdf8;
+    white-space: nowrap;
+    animation: typewriter 1.6s steps(30) forwards, caretBlink 0.6s step-end infinite alternate;
+  }
+  @keyframes typewriter { from { width: 0; } to { width: 100%; } }
+  @keyframes caretBlink { from { border-color: #38bdf8; } to { border-color: transparent; } }
+  .boot-overlay .pre-sub {
+    font-family: 'Orbitron', sans-serif; font-size: 10px; color: #94a3b8;
+    letter-spacing: 0.25em; margin-top: 16px; opacity: 0;
+    animation: preFade 0.6s ease 1.6s forwards;
+  }
+  @keyframes preFade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ヘッダー */
+  .header { text-align: center; padding: 20px 0 28px; }
+  .header-badges {
+    display: flex; justify-content: center; align-items: center; gap: 8px;
+    margin-bottom: 22px; flex-wrap: wrap;
+  }
+  .free-badge {
+    background: linear-gradient(135deg, #38bdf8, #fb923c); color: #0a0a0f;
+    padding: 6px 14px; border-radius: 2px;
+    font-family: 'Orbitron', sans-serif; font-weight: 900; font-size: 10px;
+    letter-spacing: 0.25em;
+    box-shadow: 0 0 24px rgba(56, 189, 248, 0.5);
+    animation: badgePulse 2.4s ease-in-out infinite;
+  }
+  @keyframes badgePulse {
+    0%, 100% { box-shadow: 0 0 24px rgba(56, 189, 248, 0.5); }
+    50% { box-shadow: 0 0 40px rgba(56, 189, 248, 0.8); }
+  }
+  .series-tag {
+    font-family: 'Orbitron', sans-serif; font-size: 9.5px; color: #94a3b8;
+    letter-spacing: 0.3em; padding: 5px 12px; border: 1px solid #0c2340;
+    border-radius: 2px; text-transform: uppercase;
+  }
+  h1 {
+    font-family: 'Orbitron', sans-serif; font-size: clamp(24px, 6.5vw, 36px);
+    font-weight: 900; line-height: 1.2; margin-bottom: 6px; letter-spacing: 0.04em;
+  }
+  h1 .h1-line1 {
+    display: block; color: #7dd3fc; font-size: 0.5em;
+    letter-spacing: 0.2em; margin-bottom: 6px;
+  }
+  h1 .h1-line2 {
+    display: block;
+    background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 50%, #fb923c 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    text-shadow: 0 0 30px rgba(56, 189, 248, 0.3);
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.75em;
+    margin-top: 4px; letter-spacing: 0.04em;
+  }
+  h1 .h1-sub {
+    display: block; color: #f1f5f9;
+    font-family: 'Noto Sans JP', sans-serif; font-size: 0.5em;
+    letter-spacing: 0.04em; margin-top: 6px; opacity: 0.85;
+  }
+  .catchphrase {
+    font-size: 14px; color: #fb923c; margin: 18px auto 6px;
+    max-width: 540px; line-height: 1.8; font-weight: 700;
+  }
+  .subcopy {
+    font-size: 12px; color: #94a3b8; max-width: 520px; margin: 0 auto 18px; line-height: 1.8;
+  }
+  .header-note {
+    display: inline-block; margin-top: 10px; padding: 10px 16px;
+    background: rgba(56, 189, 248, 0.10);
+    border: 1px solid rgba(56, 189, 248, 0.3); border-left: 3px solid #38bdf8;
+    border-radius: 2px; font-size: 11.5px; color: #7dd3fc;
+    line-height: 1.7; text-align: left; max-width: 520px;
+  }
+  .header-note strong { color: #fff; }
+
+  /* ライブスコア */
+  .live-score {
+    position: sticky; top: 0; z-index: 50;
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0.96) 80%, transparent);
+    padding: 8px 0; backdrop-filter: blur(8px);
+    margin: 0 -16px 16px; padding-left: 16px; padding-right: 16px;
+    display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #0c2340;
+  }
+  .live-score .lbl {
+    font-family: 'Orbitron', sans-serif; font-size: 10px;
+    color: #94a3b8; letter-spacing: 0.1em;
+  }
+  .live-score .mini-bar {
+    flex: 1; height: 8px; background: #061224; border-radius: 4px;
+    overflow: hidden; position: relative;
+  }
+  .live-score .mini-fill {
+    height: 100%; width: 0;
+    background: linear-gradient(90deg, #60a5fa 0%, #38bdf8 30%, #fbbf24 60%, #22c55e 100%);
+    border-radius: 4px; transition: width 0.5s;
+  }
+  .live-score .mini-val {
+    font-family: 'Orbitron', sans-serif; font-size: 14px; font-weight: 800;
+    color: #fbbf24; min-width: 56px; text-align: right;
+  }
+  .live-score .mini-val .pct { font-size: 10px; color: #94a3b8; }
+
+  /* セクション */
+  .section {
+    background: linear-gradient(180deg, rgba(8, 15, 24, 0.95), rgba(5, 10, 18, 0.95));
+    border: 1px solid #0c2340; border-radius: 2px;
+    padding: 24px 22px; margin: 18px 0; position: relative;
+  }
+  .section::before {
+    content: ''; position: absolute; top: 0; left: 0; width: 50px; height: 2px;
+    background: linear-gradient(90deg, #38bdf8, transparent);
+  }
+  .step-label {
+    font-family: 'Orbitron', sans-serif; font-size: 10px; color: #7dd3fc;
+    letter-spacing: 0.3em; margin-bottom: 6px; text-transform: uppercase;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .step-label::before { content: '◆'; color: #38bdf8; }
+  .section-title {
+    font-size: 17px; font-weight: 900; color: #f1f5f9;
+    margin-bottom: 18px; letter-spacing: 0.02em;
+  }
+  .axis-divider {
+    margin: 22px 0 14px; padding: 12px 14px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.25); border-left: 3px solid #38bdf8;
+    border-radius: 2px;
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  }
+  .axis-divider .axis-name {
+    font-size: 14px; font-weight: 800; color: #7dd3fc; letter-spacing: 0.03em;
+  }
+  .axis-divider .axis-count {
+    font-family: 'Orbitron', sans-serif; font-size: 10px;
+    color: #94a3b8; letter-spacing: 0.1em;
+  }
+
+  /* フィールド */
+  .field { margin-bottom: 22px; }
+  .field:last-child { margin-bottom: 0; }
+  .field-label {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 12px; font-weight: 700; color: #94a3b8;
+    margin-bottom: 10px; letter-spacing: 0.04em;
+  }
+  .field-label .req {
+    font-size: 9px; background: #38bdf8; color: #0a0a0f;
+    padding: 2px 6px; border-radius: 2px; font-weight: 900; letter-spacing: 0.05em;
+  }
+  .field-label .opt {
+    font-size: 9px; background: #334155; color: #cbd5e1;
+    padding: 2px 6px; border-radius: 2px; font-weight: 700;
+  }
+  .hint { font-size: 10.5px; color: #64748b; margin-top: 6px; line-height: 1.6; }
+
+  /* ボタングループ */
+  .btn-grid { display: grid; gap: 8px; }
+  .btn-grid.col-2 { grid-template-columns: 1fr 1fr; }
+  .btn-grid.col-3 { grid-template-columns: 1fr 1fr 1fr; }
+  @media (max-width: 480px) { .btn-grid.col-3 { grid-template-columns: 1fr 1fr; } }
+  .opt-btn {
+    background: #06121e; border: 1px solid #0c2340; color: #94a3b8;
+    padding: 14px 12px; border-radius: 2px;
+    font-size: 12.5px; font-weight: 700; cursor: pointer;
+    transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit; text-align: center; line-height: 1.5;
+  }
+  .opt-btn:hover { border-color: rgba(56, 189, 248, 0.5); color: #f1f5f9; transform: translateY(-1px); }
+  .opt-btn.active {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(125, 211, 252, 0.12));
+    border-color: #38bdf8; color: #7dd3fc;
+    box-shadow: 0 0 18px rgba(56, 189, 248, 0.3);
+  }
+
+  /* チェックボックス */
+  .check-list { display: grid; gap: 8px; }
+  .check-row {
+    display: flex; align-items: flex-start; gap: 10px;
+    background: #06121e; border: 1px solid #0c2340;
+    padding: 12px 14px; border-radius: 2px;
+    cursor: pointer; transition: all 0.18s;
+    font-size: 12.5px; color: #cbd5e1; font-weight: 600; line-height: 1.6;
+  }
+  .check-row:hover { border-color: rgba(56, 189, 248, 0.4); }
+  .check-row input[type="checkbox"] {
+    width: 16px; height: 16px; accent-color: #38bdf8;
+    cursor: pointer; flex-shrink: 0; margin-top: 2px;
+  }
+  .check-row.checked {
+    background: rgba(56, 189, 248, 0.06);
+    border-color: rgba(56, 189, 248, 0.5);
+    color: #7dd3fc;
+  }
+
+  /* スライダー */
+  input[type="range"] {
+    -webkit-appearance: none; appearance: none;
+    width: 100%; height: 6px;
+    background: linear-gradient(to right, #60a5fa 0%, #38bdf8 50%, #fbbf24 80%, #22c55e 100%);
+    border-radius: 0; outline: none; margin: 14px 0;
+    touch-action: pan-x; cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none;
+    width: 22px; height: 22px; border-radius: 50%;
+    background: #0a0a0f; border: 2px solid #38bdf8; cursor: grab;
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.6);
+  }
+  input[type="range"]::-webkit-slider-thumb:active { cursor: grabbing; transform: scale(1.15); }
+  input[type="range"]::-moz-range-thumb {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: #0a0a0f; border: 2px solid #38bdf8; cursor: grab;
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.6);
+  }
+  .slider-marks {
+    display: flex; justify-content: space-between;
+    font-size: 10px; color: #475569;
+    font-family: 'Orbitron', sans-serif; letter-spacing: 0.06em;
+  }
+  .big-num-display { text-align: center; margin: 8px 0 12px; }
+  .big-num {
+    font-family: 'Orbitron', sans-serif; font-size: 36px; font-weight: 900;
+    color: #38bdf8; line-height: 1;
+    text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+  }
+  .big-num .pct { font-size: 18px; color: #94a3b8; margin-left: 4px; }
+
+  /* CTA */
+  .cta-wrap { text-align: center; margin: 32px 0 12px; }
+  .cta-btn {
+    background: linear-gradient(135deg, #38bdf8 0%, #fb923c 100%);
+    border: none; color: #0a0a0f;
+    padding: 20px 50px;
+    font-family: 'Orbitron', sans-serif; font-size: 13px; font-weight: 900;
+    letter-spacing: 0.2em; border-radius: 2px; cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 0 32px rgba(56, 189, 248, 0.4), 0 4px 14px rgba(0, 0, 0, 0.4);
+    text-transform: uppercase;
+  }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 0 50px rgba(56, 189, 248, 0.6), 0 8px 24px rgba(0, 0, 0, 0.5); }
+  .cta-wrap.calculated .cta-btn { background: linear-gradient(135deg, #06121e, #0c2340); color: #94a3b8; }
+  .cta-wrap.calculated .cta-btn:hover { color: #7dd3fc; }
+
+  /* 結果セクション */
+  #resultArea { display: none; }
+  #resultArea.show {
+    display: block;
+    animation: resultReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @keyframes resultReveal { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .result-block { animation: blockReveal 0.6s ease backwards; }
+  .result-block:nth-child(1) { animation-delay: 0.0s; }
+  .result-block:nth-child(2) { animation-delay: 0.15s; }
+  .result-block:nth-child(3) { animation-delay: 0.30s; }
+  .result-block:nth-child(4) { animation-delay: 0.45s; }
+  .result-block:nth-child(5) { animation-delay: 0.60s; }
+  .result-block:nth-child(6) { animation-delay: 0.75s; }
+  .result-block:nth-child(7) { animation-delay: 0.90s; }
+  .result-block:nth-child(8) { animation-delay: 1.05s; }
+  .result-block:nth-child(9) { animation-delay: 1.20s; }
+  @keyframes blockReveal { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ① メインスコア */
+  .main-card {
+    background: linear-gradient(180deg, rgba(8, 15, 24, 0.98), rgba(5, 10, 18, 0.98));
+    border: 2px solid #fbbf24; border-radius: 2px;
+    padding: 32px 22px; margin: 20px 0; text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .main-card.lv-high { border-color: #22c55e; }
+  .main-card.lv-low { border-color: #60a5fa; }
+  .main-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(251, 191, 36, 0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .main-card.lv-high::before { background: radial-gradient(ellipse at center, rgba(34, 197, 94, 0.12), transparent 70%); }
+  .main-card.lv-low::before { background: radial-gradient(ellipse at center, rgba(96, 165, 250, 0.12), transparent 70%); }
+  .main-card-title {
+    font-family: 'Orbitron', sans-serif; font-size: 11px;
+    color: #fbbf24; letter-spacing: 0.25em; margin-bottom: 4px;
+    text-transform: uppercase; position: relative;
+  }
+  .main-card-sub {
+    font-size: 14px; color: #cbd5e1; margin-bottom: 8px; position: relative;
+  }
+  .main-prob {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(80px, 18vw, 120px);
+    font-weight: 900; color: #fbbf24; line-height: 1;
+    text-shadow: 0 0 40px rgba(251, 191, 36, 0.6), 0 0 80px rgba(251, 191, 36, 0.3);
+    margin: 8px 0; position: relative; letter-spacing: -0.02em;
+  }
+  .main-prob .pct { font-size: 0.4em; color: #94a3b8; margin-left: 4px; vertical-align: top; margin-top: 0.3em; display: inline-block; }
+  .main-prob.lv-high { color: #22c55e; text-shadow: 0 0 40px rgba(34, 197, 94, 0.6); }
+  .main-prob.lv-low { color: #60a5fa; text-shadow: 0 0 40px rgba(96, 165, 250, 0.6); }
+  .main-vs-base {
+    font-size: 13px; color: #cbd5e1; margin-top: 4px; position: relative;
+    line-height: 1.7;
+  }
+  .main-vs-base .vs-num {
+    font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 16px;
+    color: #fbbf24; margin: 0 4px;
+  }
+  .main-vs-base .vs-num.high { color: #22c55e; }
+  .main-vs-base .vs-num.low { color: #60a5fa; }
+  .main-msg {
+    margin-top: 18px; padding: 14px 16px;
+    background: rgba(251, 191, 36, 0.08);
+    border: 1px solid rgba(251, 191, 36, 0.4); border-left: 3px solid #fbbf24;
+    border-radius: 2px;
+    font-size: 13px; color: #fde68a; line-height: 1.8; font-weight: 600;
+    position: relative;
+  }
+
+  /* ② フェーズバー */
+  .phase-card {
+    background: linear-gradient(180deg, rgba(8, 15, 24, 0.95), rgba(5, 10, 18, 0.95));
+    border: 1px solid #0c2340; border-radius: 2px;
+    padding: 22px 22px; margin: 18px 0;
+  }
+  .phase-card-title {
+    font-family: 'Orbitron', sans-serif; font-size: 11px;
+    color: #7dd3fc; letter-spacing: 0.25em; margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .phase-svg {
+    width: 100%; height: auto; max-width: 720px;
+    display: block; margin: 14px auto 8px;
+  }
+  .phase-current-desc {
+    margin-top: 14px; padding: 14px 16px;
+    background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.4); border-left: 3px solid #38bdf8;
+    border-radius: 2px;
+    font-size: 12.5px; color: #cbd5e1; line-height: 1.8;
+  }
+  .phase-current-desc strong { color: #7dd3fc; }
+
+  /* ③ レーダー */
+  .radar-card {
+    background: linear-gradient(180deg, rgba(8, 15, 24, 0.95), rgba(5, 10, 18, 0.95));
+    border: 1px solid #0c2340; border-radius: 2px;
+    padding: 22px 22px; margin: 18px 0; text-align: center;
+  }
+  .radar-card-title {
+    font-family: 'Orbitron', sans-serif; font-size: 11px;
+    color: #7dd3fc; letter-spacing: 0.25em; margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .radar-svg {
+    max-width: 340px; width: 100%; height: auto;
+    margin: 0 auto; display: block;
+  }
+  .axis-scores {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    margin-top: 14px;
+  }
+  .axis-cell {
+    background: #06121e; border: 1px solid #0c2340;
+    border-radius: 2px; padding: 12px 12px; text-align: left;
+    position: relative;
+  }
+  .axis-cell.strong { border-color: #22c55e; }
+  .axis-cell.weak { border-color: #fb923c; }
+  .axis-cell .ax-badge {
+    position: absolute; top: -8px; right: 10px;
+    font-family: 'Orbitron', sans-serif; font-size: 9px; font-weight: 900;
+    padding: 2px 6px; letter-spacing: 0.1em; border-radius: 2px;
+  }
+  .axis-cell.strong .ax-badge { background: #22c55e; color: #0a0a0f; }
+  .axis-cell.weak .ax-badge { background: #fb923c; color: #0a0a0f; }
+  .axis-cell .ax-name {
+    font-size: 11.5px; color: #cbd5e1; margin-bottom: 4px; font-weight: 700;
+  }
+  .axis-cell .ax-val {
+    font-family: 'Orbitron', sans-serif; font-size: 20px; font-weight: 800;
+    color: #38bdf8;
+  }
+  .axis-cell.strong .ax-val { color: #22c55e; }
+  .axis-cell.weak .ax-val { color: #fb923c; }
+  .axis-cell .denom { font-size: 11px; color: #475569; }
+
+  /* ④ タイミングスコア */
+  .timing-card {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.10), rgba(125, 211, 252, 0.04));
+    border: 1px solid rgba(56, 189, 248, 0.4);
+    border-radius: 2px; padding: 22px 22px; margin: 18px 0;
+    text-align: center;
+  }
+  .timing-title {
+    font-family: 'Orbitron', sans-serif; font-size: 11px;
+    color: #7dd3fc; letter-spacing: 0.25em; margin-bottom: 8px;
+  }
+  .timing-num {
+    font-family: 'Orbitron', sans-serif; font-size: 56px; font-weight: 900;
+    color: #38bdf8; line-height: 1;
+    text-shadow: 0 0 28px rgba(56, 189, 248, 0.6);
+    margin: 6px 0;
+  }
+  .timing-num .denom { font-size: 18px; color: #475569; }
+  .timing-judge {
+    display: inline-block; margin: 8px 0;
+    padding: 8px 18px; border: 2px solid #38bdf8;
+    font-family: 'Orbitron', sans-serif; font-size: 12px; font-weight: 900;
+    letter-spacing: 0.1em; color: #7dd3fc;
+  }
+  .timing-judge.lv-go { border-color: #22c55e; color: #22c55e; }
+  .timing-judge.lv-prep { border-color: #38bdf8; color: #7dd3fc; }
+  .timing-judge.lv-build { border-color: #fbbf24; color: #fbbf24; }
+  .timing-judge.lv-wait { border-color: #fb923c; color: #fdba74; }
+  .timing-msg {
+    font-size: 12.5px; color: #cbd5e1; margin-top: 8px; line-height: 1.8;
+  }
+
+  /* ⑤ シナリオ */
+  .scenario-card {
+    background: linear-gradient(180deg, rgba(8, 15, 24, 0.95), rgba(5, 10, 18, 0.95));
+    border: 1px solid #0c2340; border-radius: 2px;
+    padding: 22px 22px; margin: 18px 0;
+  }
+  .scenario-title {
+    font-family: 'Orbitron', sans-serif; font-size: 11px;
+    color: #fbbf24; letter-spacing: 0.25em; margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+  .scenario-list {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .scenario-row {
+    background: #06121e; border: 1px solid #0c2340;
+    border-radius: 2px; padding: 14px 16px;
+    display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center;
+  }
+  .scenario-row.success { border-left: 3px solid #22c55e; }
+  .scenario-row.friend { border-left: 3px solid #fbbf24; }
+  .scenario-row.bad { border-left: 3px solid #fb923c; }
+  .scenario-info .sc-name {
+    font-size: 13px; font-weight: 800; color: #f1f5f9;
+    margin-bottom: 2px;
+  }
+  .scenario-info .sc-desc {
+    font-size: 11.5px; color: #94a3b8; line-height: 1.5;
+  }
+  .scenario-pct {
+    font-family: 'Orbitron', sans-serif; font-size: 24px; font-weight: 900;
+    text-align: right;
+  }
+  .scenario-row.success .scenario-pct { color: #22c55e; }
+  .scenario-row.friend .scenario-pct { color: #fbbf24; }
+  .scenario-row.bad .scenario-pct { color: #fb923c; }
+  .scenario-pct .pct { font-size: 14px; color: #475569; }
+  .scenario-bar {
+    grid-column: 1 / -1; height: 6px; background: #06121e;
+    border-radius: 2px; overflow: hidden; margin-top: 8px;
+  }
+  .scenario-fill { height: 100%; width: 0; transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
+  .scenario-row.success .scenario-fill { background: linear-gradient(90deg, #22c55e, #4ade80); box-shadow: 0 0 8px rgba(34, 197, 94, 0.4); }
+  .scenario-row.friend .scenario-fill { background: linear-gradient(90deg, #fbbf24, #fcd34d); box-shadow: 0 0 8px rgba(251, 191, 36, 0.4); }
+  .scenario-row.bad .scenario-fill { background: linear-gradient(90deg, #fb923c, #fdba74); box-shadow: 0 0 8px rgba(251, 146, 60, 0.4); }
+
+  /* ⑥ 変化軸 */
+  .change-card {
+    background: linear-gradient(180deg, rgba(8, 15, 24, 0.95), rgba(5, 10, 18, 0.95));
+    border: 1px solid #0c2340; border-radius: 2px;
+    padding: 20px 22px; margin: 18px 0;
+  }
+  .change-card-title {
+    font-size: 14px; font-weight: 900; color: #38bdf8; margin-bottom: 10px;
+  }
+  .change-body {
+    font-size: 12.5px; color: #cbd5e1; line-height: 1.8;
+  }
+  .change-body strong { color: #fbbf24; }
+  .change-body .alt {
+    margin-top: 10px; padding: 10px 12px;
+    background: rgba(148, 163, 184, 0.06); border-left: 2px solid #94a3b8;
+    border-radius: 2px;
+    font-size: 11.5px; color: #94a3b8; font-style: italic;
+  }
+
+  /* ⑦ アクション */
+  .action-card {
+    background: linear-gradient(135deg, rgba(251, 146, 60, 0.10), rgba(251, 146, 60, 0.04));
+    border: 1px solid #fb923c; border-radius: 2px;
+    padding: 22px 22px; margin: 18px 0;
+  }
+  .action-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #fb923c, #f97316); color: #0a0a0f;
+    padding: 3px 10px; font-family: 'Orbitron', sans-serif;
+    font-size: 9.5px; font-weight: 900; letter-spacing: 0.15em;
+    border-radius: 0; margin-bottom: 10px;
+  }
+  .action-title {
+    font-size: 15px; font-weight: 900; color: #fdba74; margin-bottom: 8px;
+  }
+  .action-main {
+    padding: 14px 16px; background: #06121e;
+    border-left: 3px solid #fb923c; border-radius: 2px;
+    font-size: 14px; color: #fff; font-weight: 700; line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .action-detail {
+    font-size: 12.5px; color: #cbd5e1; line-height: 1.8;
+  }
+
+  /* ⑧ 信頼度解説 */
+  .trust-card {
+    background: linear-gradient(180deg, rgba(8, 15, 24, 0.95), rgba(5, 10, 18, 0.95));
+    border: 1px solid #0c2340; border-radius: 2px;
+    padding: 20px 22px; margin: 18px 0;
+  }
+  .trust-title {
+    font-size: 14px; font-weight: 900; color: #fbbf24; margin-bottom: 10px;
+  }
+  .trust-intro {
+    font-size: 12.5px; color: #cbd5e1; line-height: 1.7; margin-bottom: 12px;
+  }
+  .trust-list { display: grid; gap: 6px; }
+  .trust-row {
+    background: #06121e; border-radius: 2px;
+    padding: 10px 14px;
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 12px; line-height: 1.6;
+  }
+  .trust-row.high { border-left: 3px solid #22c55e; }
+  .trust-row.mid { border-left: 3px solid #fbbf24; }
+  .trust-row.low { border-left: 3px solid #94a3b8; }
+  .trust-row .tag {
+    font-family: 'Orbitron', sans-serif; font-size: 9.5px; font-weight: 900;
+    padding: 2px 6px; border-radius: 2px; flex-shrink: 0;
+  }
+  .trust-row.high .tag { background: #22c55e; color: #0a0a0f; }
+  .trust-row.mid .tag { background: #fbbf24; color: #0a0a0f; }
+  .trust-row.low .tag { background: #94a3b8; color: #0a0a0f; }
+  .trust-row .desc { color: #cbd5e1; }
+  .trust-conclusion {
+    margin-top: 12px; padding: 10px 14px;
+    background: rgba(251, 191, 36, 0.06); border-left: 3px solid #fbbf24;
+    border-radius: 2px;
+    font-size: 11.5px; color: #fde68a; line-height: 1.7;
+  }
+
+  /* ⑨ 他の可能性 */
+  .possibility-card {
+    background: rgba(148, 163, 184, 0.06);
+    border: 1px solid rgba(148, 163, 184, 0.3); border-left: 3px solid #94a3b8;
+    border-radius: 2px; padding: 20px 20px; margin: 18px 0;
+  }
+  .possibility-title {
+    font-size: 14px; font-weight: 900; color: #cbd5e1; margin-bottom: 10px;
+  }
+  .possibility-intro {
+    font-size: 12.5px; color: #cbd5e1; line-height: 1.8; margin-bottom: 12px;
+  }
+  .possibility-list { list-style: none; padding: 0; }
+  .possibility-list li {
+    background: #06121e; border-left: 2px solid #94a3b8;
+    padding: 10px 14px; margin-bottom: 6px;
+    font-size: 12px; color: #cbd5e1; line-height: 1.7;
+    border-radius: 2px;
+  }
+  .possibility-footer {
+    margin-top: 14px; padding: 10px 14px;
+    background: rgba(56, 189, 248, 0.06); border-left: 3px solid #38bdf8;
+    border-radius: 2px;
+    font-size: 11.5px; color: #7dd3fc; line-height: 1.7;
+  }
+
+  /* シェア */
+  .share-section {
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.10), rgba(251, 146, 60, 0.04));
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    border-radius: 2px; padding: 22px 20px; margin: 18px 0; text-align: center;
+  }
+  .share-title {
+    font-family: 'Orbitron', sans-serif; font-size: 11px;
+    color: #7dd3fc; letter-spacing: 0.2em; margin-bottom: 8px;
+  }
+  .share-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px;
+  }
+  .share-btn {
+    background: #06121e; border: 1px solid #0c2340; color: #cbd5e1;
+    padding: 13px 12px; border-radius: 2px;
+    font-size: 12px; font-weight: 700; cursor: pointer;
+    transition: all 0.22s; font-family: inherit;
+  }
+  .share-btn:hover { border-color: rgba(56, 189, 248, 0.5); background: #0a1828; }
+
+  /* フッター */
+  footer {
+    text-align: center; padding: 44px 16px 32px;
+    color: #475569; font-size: 11px; line-height: 1.9;
+  }
+  .footer-title {
+    font-family: 'Orbitron', sans-serif; font-size: 13px;
+    color: #38bdf8; letter-spacing: 0.15em; margin-bottom: 8px;
+  }
+  .disclaimer-block {
+    background: rgba(56, 189, 248, 0.06);
+    border: 1px solid rgba(56, 189, 248, 0.25); border-left: 3px solid #38bdf8;
+    border-radius: 2px; padding: 14px 16px; text-align: left; margin: 18px 0;
+  }
+  .disclaimer-block .ttl {
+    font-family: 'Orbitron', sans-serif; font-size: 10px;
+    color: #7dd3fc; letter-spacing: 0.2em; margin-bottom: 8px; font-weight: 800;
+  }
+  .disclaimer-block ul { list-style: none; padding: 0; }
+  .disclaimer-block li {
+    font-size: 11px; color: #cbd5e1; padding: 3px 0;
+    padding-left: 14px; position: relative; line-height: 1.6;
+  }
+  .disclaimer-block li::before { content: '・'; position: absolute; left: 0; color: #38bdf8; }
+  .sister-section { margin: 28px 0 24px; padding-top: 24px; border-top: 1px solid #0c2340; }
+  .sister-label {
+    font-family: 'Orbitron', sans-serif; font-size: 10px;
+    color: #38bdf8; letter-spacing: 0.25em; margin-bottom: 12px;
+  }
+  .sister-link {
+    display: flex; align-items: center; justify-content: space-between;
+    background: #06121e; border: 1px solid #0c2340; border-radius: 2px;
+    padding: 12px 16px; margin-bottom: 8px;
+    color: #cbd5e1; text-decoration: none; transition: all 0.25s;
+    font-size: 12.5px; font-weight: 500; gap: 8px;
+  }
+  .sister-link:hover { border-color: rgba(56, 189, 248, 0.5); color: #7dd3fc; transform: translateX(4px); }
+  .sister-link .arrow { color: #38bdf8; font-family: 'Orbitron', sans-serif; }
+  .sister-link .price {
+    font-size: 10px; background: rgba(56, 189, 248, 0.15); color: #7dd3fc;
+    padding: 2px 6px; border-radius: 2px; font-weight: 800;
+    font-family: 'Orbitron', sans-serif; letter-spacing: 0.05em;
+  }
+  .sister-link .price.free { background: rgba(148, 163, 184, 0.15); color: #94a3b8; }
+  .sister-link.current { opacity: 0.5; cursor: default; }
+  .sister-link.current:hover { transform: none; }
+  .note-link { margin-top: 16px; font-family: 'Orbitron', sans-serif; font-size: 11px; letter-spacing: 0.1em; }
+  .note-link a {
+    color: #7dd3fc; text-decoration: none;
+    border-bottom: 1px solid rgba(125, 211, 252, 0.3); padding-bottom: 1px;
+  }
+
+  .toast {
+    position: fixed; bottom: 24px; left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: linear-gradient(135deg, #38bdf8, #7dd3fc); color: #0a0a0f;
+    padding: 12px 24px; border-radius: 2px;
+    font-weight: 800; font-size: 12px;
+    box-shadow: 0 8px 32px rgba(56, 189, 248, 0.5);
+    opacity: 0; transition: opacity 0.3s, transform 0.3s;
+    pointer-events: none; z-index: 100;
+    letter-spacing: 0.05em; font-family: 'Orbitron', sans-serif;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<div class="boot-overlay" id="bootOverlay">
+  <div class="pre-title">LOVE PROBABILITY ANALYSIS</div>
+  <div class="pre-sub">▸ CALCULATING YOUR CHANCE ◂</div>
+</div>
+
+<div class="container">
+
+  <header class="header">
+    <div class="header-badges">
+      <span class="free-badge">💙 FREE TOOL</span>
+      <span class="series-tag">RELATIONSHIP · 06</span>
+    </div>
+    <h1>
+      <span class="h1-line1">LOVE PROBABILITY</span>
+      <span class="h1-line2">片思い成就確率診断</span>
+      <span class="h1-sub">告白する前に読む数字</span>
+    </h1>
+    <p class="catchphrase">告白の成功率は<strong style="color:#fbbf24;">平均53%</strong>。<br>でも、あなたのケースは？</p>
+    <p class="subcopy">占いじゃない。行動心理学ベースの4軸で、今の状況を数値化する。</p>
+    <div class="header-note">
+      💡 告白するかどうかより、<br>
+      「<strong>今どのフェーズにいるか</strong>」を知ることが先決です
+    </div>
+  </header>
+
+  <!-- ライブスコア -->
+  <div class="live-score">
+    <span class="lbl">▸ LIVE PROBABILITY</span>
+    <div class="mini-bar"><div class="mini-fill" id="miniFill"></div></div>
+    <span class="mini-val"><span id="miniVal">--</span><span class="pct">%</span></span>
+  </div>
+
+  <!-- STEP 01 -->
+  <section class="section">
+    <div class="step-label">STEP 01 · 基本情報</div>
+    <div class="section-title">相手との関係を入力</div>
+
+    <div class="field">
+      <div class="field-label"><span>相手との関係性</span><span class="req">必須</span></div>
+      <div class="btn-grid col-2" id="relGrid">
+        <button class="opt-btn active" data-rel="学校">🏫 同じ学校・クラス</button>
+        <button class="opt-btn" data-rel="職場">💼 職場・バイト仲間</button>
+        <button class="opt-btn" data-rel="共通友人">👥 共通の友人グループ</button>
+        <button class="opt-btn" data-rel="SNS">📱 SNS・アプリ</button>
+        <button class="opt-btn" data-rel="ほぼ面識">🌸 ほぼ面識がない</button>
+        <button class="opt-btn" data-rel="元交際">🔄 元交際相手</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label"><span>片思いの期間</span><span class="req">必須</span></div>
+      <div class="btn-grid col-3" id="periodGrid">
+        <button class="opt-btn" data-pr="〜1ヶ月">〜1ヶ月</button>
+        <button class="opt-btn active" data-pr="1-3ヶ月">1〜3ヶ月</button>
+        <button class="opt-btn" data-pr="3-6ヶ月">3〜6ヶ月</button>
+        <button class="opt-btn" data-pr="6ヶ月-1年">6ヶ月〜1年</button>
+        <button class="opt-btn" data-pr="1年以上">1年以上</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label"><span>2人が直接会う頻度</span><span class="req">必須</span></div>
+      <div class="btn-grid col-2" id="freqGrid">
+        <button class="opt-btn active" data-fq="毎日">ほぼ毎日（学校・職場で）</button>
+        <button class="opt-btn" data-fq="週2-3">週2〜3回</button>
+        <button class="opt-btn" data-fq="週1">週1回くらい</button>
+        <button class="opt-btn" data-fq="月1-2">月1〜2回</button>
+        <button class="opt-btn" data-fq="ほぼ会わない">ほぼ会わない（SNSのみ）</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEP 02: 4軸チェック -->
+  <section class="section">
+    <div class="step-label">STEP 02 · 4軸の行動チェック（24項目）</div>
+    <div class="section-title">相手の行動・反応で当てはまるものを選択</div>
+    <div class="hint" style="margin-bottom: 14px; font-size: 11.5px;">
+      <strong style="color:#7dd3fc;">A:接触距離</strong> / <strong>B:会話</strong> /
+      <strong>C:感情</strong> / <strong>D:変化</strong> の4軸を測定します。
+    </div>
+    <div id="axesContainer"></div>
+  </section>
+
+  <!-- STEP 03 -->
+  <section class="section">
+    <div class="step-label">STEP 03 · あなたの状況</div>
+    <div class="section-title">あなたから相手への状況</div>
+
+    <div class="field">
+      <div class="field-label"><span>あなたから相手へのアクション（複数選択可）</span><span class="opt">任意</span></div>
+      <div class="check-list" id="actionGrid">
+        <label class="check-row"><input type="checkbox" data-act="talk">自分からよく話しかけている</label>
+        <label class="check-row"><input type="checkbox" data-act="know">相手の好きなこと・趣味を把握している</label>
+        <label class="check-row"><input type="checkbox" data-act="common">共通の話題・趣味がある</label>
+        <label class="check-row"><input type="checkbox" data-act="laugh">一緒に笑える場面を作れている</label>
+        <label class="check-row"><input type="checkbox" data-act="listen">相手の悩みを聞いたことがある</label>
+        <label class="check-row"><input type="checkbox" data-act="alone">2人きりになる機会を作ったことがある</label>
+        <label class="check-row"><input type="checkbox" data-act="none">特にアクションはできていない</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="field-label"><span>現時点での「脈あり感覚」</span><span class="req">必須</span></div>
+      <div class="big-num-display">
+        <span class="big-num"><span id="feelVal">50</span><span class="pct">%</span></span>
+      </div>
+      <input type="range" id="feelSlider" min="0" max="100" step="1" value="50">
+      <div class="slider-marks"><span>0 脈なし</span><span>50</span><span>100 確実に脈あり</span></div>
+    </div>
+
+    <div class="field">
+      <div class="field-label"><span>告白を考えているか</span><span class="req">必須</span></div>
+      <div class="btn-grid col-2" id="intentGrid">
+        <button class="opt-btn" data-it="100">🔥 今すぐ告白したい</button>
+        <button class="opt-btn active" data-it="75">📅 タイミングを見て告白</button>
+        <button class="opt-btn" data-it="50">🤔 まだ迷っている</button>
+        <button class="opt-btn" data-it="30">⏳ もっと関係を深めてから</button>
+        <button class="opt-btn" data-it="10">💭 告白より関係を続けたい</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 計算ボタン -->
+  <div class="cta-wrap" id="ctaWrap">
+    <button class="cta-btn" id="calcBtn">▶ 成就確率を診断する</button>
+  </div>
+
+  <!-- 結果エリア -->
+  <div id="resultArea">
+
+    <!-- ① メインスコア -->
+    <div class="result-block">
+      <div class="main-card" id="mainCard">
+        <div class="main-card-title">▸ LOVE PROBABILITY COMPLETE</div>
+        <div class="main-card-sub">片思いが成就する確率</div>
+        <div class="main-prob" id="mainProb">0<span class="pct">%</span></div>
+        <div class="main-vs-base" id="vsBase">---</div>
+        <div class="main-msg" id="mainMsg">---</div>
+      </div>
+    </div>
+
+    <!-- ② フェーズバー -->
+    <div class="result-block">
+      <div class="phase-card">
+        <div class="phase-card-title">▸ PHASE JUDGEMENT · 現在のフェーズ</div>
+        <svg class="phase-svg" id="phaseSvg" viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg"></svg>
+        <div class="phase-current-desc" id="phaseDesc">---</div>
+      </div>
+    </div>
+
+    <!-- ③ レーダー -->
+    <div class="result-block">
+      <div class="radar-card">
+        <div class="radar-card-title">▸ 4-AXIS BEHAVIOR RADAR</div>
+        <svg class="radar-svg" id="radarSvg" viewBox="0 0 340 320" xmlns="http://www.w3.org/2000/svg"></svg>
+        <div class="axis-scores" id="axisScores"></div>
+      </div>
+    </div>
+
+    <!-- ④ タイミングスコア -->
+    <div class="result-block">
+      <div class="timing-card">
+        <div class="timing-title">▸ CONFESSION TIMING SCORE</div>
+        <div style="font-size:12px;color:#94a3b8;margin-bottom:6px;">告白タイミングスコア</div>
+        <div class="timing-num"><span id="timingVal">0</span><span class="denom">/100</span></div>
+        <div class="timing-judge" id="timingJudge">---</div>
+        <div class="timing-msg" id="timingMsg">---</div>
+      </div>
+    </div>
+
+    <!-- ⑤ シナリオ -->
+    <div class="result-block">
+      <div class="scenario-card">
+        <div class="scenario-title">📊 SCENARIO PREDICTION · 今告白した場合</div>
+        <div class="scenario-list">
+          <div class="scenario-row success">
+            <div class="scenario-info">
+              <div class="sc-name">✅ 成功（交際へ）</div>
+              <div class="sc-desc">告白を受け入れてもらえる確率</div>
+            </div>
+            <div class="scenario-pct"><span id="scSuccess">0</span><span class="pct">%</span></div>
+            <div class="scenario-bar"><div class="scenario-fill" id="scSuccessBar"></div></div>
+          </div>
+          <div class="scenario-row friend">
+            <div class="scenario-info">
+              <div class="sc-name">😊 友達として継続</div>
+              <div class="sc-desc">「友達として大事」と返される</div>
+            </div>
+            <div class="scenario-pct"><span id="scFriend">0</span><span class="pct">%</span></div>
+            <div class="scenario-bar"><div class="scenario-fill" id="scFriendBar"></div></div>
+          </div>
+          <div class="scenario-row bad">
+            <div class="scenario-info">
+              <div class="sc-name">😟 一時的に距離ができる</div>
+              <div class="sc-desc">気まずさが生まれる可能性</div>
+            </div>
+            <div class="scenario-pct"><span id="scBad">0</span><span class="pct">%</span></div>
+            <div class="scenario-bar"><div class="scenario-fill" id="scBadBar"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑥ 変化軸 -->
+    <div class="result-block">
+      <div class="change-card">
+        <div class="change-card-title">📈 最も強い軸：<span id="topAxisName">---</span></div>
+        <div class="change-body" id="changeBody">---</div>
+      </div>
+    </div>
+
+    <!-- ⑦ アクション -->
+    <div class="result-block">
+      <div class="action-card">
+        <div class="action-tag">💡 NEXT ACTION</div>
+        <div class="action-title">次にやるべき1アクション</div>
+        <div class="action-main" id="actionMain">---</div>
+        <div class="action-detail" id="actionDetail">---</div>
+      </div>
+    </div>
+
+    <!-- ⑧ 信頼度解説 -->
+    <div class="result-block">
+      <div class="trust-card">
+        <div class="trust-title">💡 脈ありサインの「信頼度」について</div>
+        <div class="trust-intro">
+          このツールはすべての項目を同等に扱っていません。<br>
+          行動の <strong style="color:#22c55e;">信頼度の高さで重み付け</strong> しています。
+        </div>
+        <div class="trust-list">
+          <div class="trust-row high">
+            <span class="tag">高信頼</span>
+            <div class="desc"><strong>「用事がなくても連絡してくる」「2人で会う提案をしてくれた」</strong><br>意図的な接触・好意の可能性が高いサインです。</div>
+          </div>
+          <div class="trust-row mid">
+            <span class="tag">中信頼</span>
+            <div class="desc"><strong>「よく目が合う」「プライベートな話をしてくれる」</strong><br>単純な距離の近さ・偶然の場合もあります。</div>
+          </div>
+          <div class="trust-row low">
+            <span class="tag">低信頼</span>
+            <div class="desc"><strong>「SNSのいいね」「相手から話しかける」</strong><br>全員に同じようにしている可能性もあります。</div>
+          </div>
+        </div>
+        <div class="trust-conclusion">
+          → 単発のサインで判断せず、<strong style="color:#fbbf24;">複数の高信頼サインが重なっているか</strong>を見ます。
+        </div>
+      </div>
+    </div>
+
+    <!-- ⑨ 他の可能性 -->
+    <div class="result-block">
+      <div class="possibility-card">
+        <div class="possibility-title">💡 このスコアについて</div>
+        <div class="possibility-intro">
+          同じスコアが出ても、こういう可能性があります：
+        </div>
+        <ul class="possibility-list">
+          <li>🙂 相手が「誰にでも優しい」性格の場合</li>
+          <li>👥 グループ内の雰囲気として自然に接触が多い場合</li>
+          <li>💭 相手が別の誰かに気があって、あなたを「友達」として見ている場合</li>
+          <li>🌸 相手にあなたへの好意がある可能性も含まれる場合</li>
+        </ul>
+        <div class="possibility-footer">
+          💙 「脈あり」と「誰にでも優しい」の見分けは、このツールだけでは判断できません。<br>
+          最終的な判断は、必ずご自身の総合的な感覚でしてください。応援してます。
+        </div>
+      </div>
+    </div>
+
+    <!-- シェア -->
+    <div class="result-block">
+      <div class="share-section">
+        <div class="share-title">▸ SHARE</div>
+        <div style="font-size: 12.5px; color: #cbd5e1; line-height: 1.7;">
+          同じ片思いの友達にも届きますように💙
+        </div>
+        <div class="share-row">
+          <button class="share-btn" id="copyBtn">📋 結果をコピー</button>
+          <button class="share-btn" id="tweetBtn">𝕏 でシェア</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-title">▸ TAKUMA</div>
+    <div style="font-size:11px;color:#64748b;margin-bottom:16px;line-height:1.8;">人生を数値化するメディア</div>
+
+    <div class="disclaimer-block">
+      <div class="ttl">⚠ DISCLAIMER · 免責事項</div>
+      <ul>
+        <li>このツールは行動心理学をもとにした参考ツールです</li>
+        <li>「成就確率○%」は統計的な目安であり、特定の相手の気持ちを断定するものではありません</li>
+        <li>人の気持ちは数字で完全に測れません</li>
+        <li>最終的な判断は必ずご自身でお願いします</li>
+      </ul>
+    </div>
+
+    <div class="sister-section">
+      <div class="sister-label">▸ RELATIONSHIP SERIES</div>
+      <a class="sister-link" href="../partner_uwaki_score/index.html">
+        <span>🔍 パートナーの行動変化 浮気確率スコア</span>
+        <span class="price free">無料</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="sister-link" href="../line_ondosa_shindan/index.html">
+        <span>🌡️ LINE温度差診断</span>
+        <span class="price free">無料</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="sister-link" href="../wakareru_yochou_score/index.html">
+        <span>💔 別れの予兆スコア診断</span>
+        <span class="price free">無料</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="sister-link" href="../renai_izon_shindan/index.html">
+        <span>💜 恋愛依存度診断</span>
+        <span class="price free">無料</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="sister-link current">
+        <span>💙 片思い成就確率診断（このツール）</span>
+        <span class="price free">無料</span>
+        <span class="arrow">●</span>
+      </a>
+      <a class="sister-link" href="../aichaku_style_complete/index.html">
+        <span>🌸 愛着スタイル 完全診断</span>
+        <span class="price">¥500</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <div class="note-link">
+      <a href="https://note.com/nissy1007" target="_blank" rel="noopener">▷ note.com/nissy1007</a>
+    </div>
+    <div style="margin-top:14px;font-size:10px;color:#475569;">© Love Probability Diagnosis · Relationship Series</div>
+  </footer>
+</div>
+
+<div class="toast" id="toast">COPIED</div>
+
+<script>
+'use strict';
+
+/* ========== 4軸データ ========== */
+const AXES = {
+  A: {
+    name: '👀 接触・距離感', icon: '👀', short: '接触',
+    weight: 0.20,
+    items: [
+      { id: 'A1', text: '相手から話しかけてくることがある', trust: 'low' },
+      { id: 'A2', text: '会話中に身体的な距離が近い・縮まってくる', trust: 'mid' },
+      { id: 'A3', text: '2人だけで会った経験がある（グループでなく）', trust: 'high' },
+      { id: 'A4', text: '相手からLINEやDMを送ってくることがある', trust: 'mid' },
+      { id: 'A5', text: '「今何してる？」など、用事がなくても連絡してくる', trust: 'high' },
+      { id: 'A6', text: '偶然会った時に立ち止まって話してくれる', trust: 'mid' },
+    ],
+  },
+  B: {
+    name: '💬 会話・コミュニケーション', icon: '💬', short: '会話',
+    weight: 0.25,
+    items: [
+      { id: 'B1', text: '会話中によく目が合う・視線が長い', trust: 'mid' },
+      { id: 'B2', text: '自分のことを笑顔で聞いてくれる・話を広げてくれる', trust: 'mid' },
+      { id: 'B3', text: 'プライベートな話（家族・趣味・過去）をしてくれる', trust: 'high' },
+      { id: 'B4', text: '自分の名前をよく呼んでくれる', trust: 'mid' },
+      { id: 'B5', text: '冗談やからかいがある（良い意味での距離感の近さ）', trust: 'mid' },
+      { id: 'B6', text: 'LINEやDMの返信が早い・返信が続く', trust: 'mid' },
+    ],
+  },
+  C: {
+    name: '💓 感情・反応のサイン', icon: '💓', short: '感情',
+    weight: 0.25,
+    items: [
+      { id: 'C1', text: '一緒にいると相手が楽しそう・よく笑う', trust: 'mid' },
+      { id: 'C2', text: '自分が話すと相手がリアクションしてくれる', trust: 'low' },
+      { id: 'C3', text: '相手があなたのSNSによくいいね・コメントする', trust: 'low' },
+      { id: 'C4', text: '相手があなたの変化（髪型・服装）に気づいてくれた', trust: 'high' },
+      { id: 'C5', text: '他の人といる時と自分といる時で、態度が違う気がする', trust: 'high' },
+      { id: 'C6', text: '相手が「また話しかけてほしい」雰囲気を出している', trust: 'mid' },
+    ],
+  },
+  D: {
+    name: '🏃 行動・関係性の変化', icon: '🏃', short: '変化',
+    weight: 0.30,
+    items: [
+      { id: 'D1', text: '最近、相手から接触が増えてきた（以前より）', trust: 'high' },
+      { id: 'D2', text: '一緒に行動する場面が増えてきた', trust: 'high' },
+      { id: 'D3', text: '相手が自分の予定や状況を覚えていてくれた', trust: 'high' },
+      { id: 'D4', text: '他の異性の話題が出た時、相手の反応が変わる気がする', trust: 'high' },
+      { id: 'D5', text: '相手が「あなたに好意がある可能性」を誰かに言われたことがある', trust: 'high' },
+      { id: 'D6', text: '「2人で○○しよう」と相手から提案があった', trust: 'high' },
+    ],
+  },
+};
+
+const state = {
+  rel: '学校', period: '1-3ヶ月', freq: '毎日',
+  checks: {}, actions: [], feel: 50, intent: 75,
+};
+
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+
+/* 軸カード描画 */
+function renderAxes() {
+  const c = $('#axesContainer');
+  let html = '';
+  Object.entries(AXES).forEach(([key, ax]) => {
+    html += `<div class="axis-divider">
+      <div class="axis-name">${ax.name}</div>
+      <div class="axis-count">${ax.items.length}項目</div>
+    </div>`;
+    html += '<div class="check-list">';
+    ax.items.forEach(item => {
+      html += `<label class="check-row">
+        <input type="checkbox" data-cid="${item.id}">
+        <div>${item.text}</div>
+      </label>`;
+    });
+    html += '</div>';
+  });
+  c.innerHTML = html;
+  c.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      state.checks[cb.dataset.cid] = cb.checked;
+      cb.closest('.check-row').classList.toggle('checked', cb.checked);
+      updateLive();
+    });
+  });
+}
+
+/* バインド */
+function bindGroup(selector, attr, key, numeric) {
+  $$(selector + ' .opt-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      $$(selector + ' .opt-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state[key] = numeric ? parseFloat(btn.dataset[attr]) : btn.dataset[attr];
+      updateLive();
+    });
+  });
+}
+bindGroup('#relGrid', 'rel', 'rel');
+bindGroup('#periodGrid', 'pr', 'period');
+bindGroup('#freqGrid', 'fq', 'freq');
+bindGroup('#intentGrid', 'it', 'intent', true);
+
+$$('#actionGrid input[type="checkbox"]').forEach(cb => {
+  cb.addEventListener('change', () => {
+    cb.closest('.check-row').classList.toggle('checked', cb.checked);
+    state.actions = Array.from($$('#actionGrid input:checked')).map(x => x.dataset.act);
+    updateLive();
+  });
+});
+
+const feelSlider = $('#feelSlider');
+feelSlider.addEventListener('input', () => {
+  state.feel = parseInt(feelSlider.value, 10);
+  $('#feelVal').textContent = state.feel;
+  updateLive();
+});
+
+/* 計算 */
+function calc() {
+  // 4軸スコア（信頼度重み付き）
+  const trustWeight = { high: 1.3, mid: 1.0, low: 0.7 };
+  let scoreA = 0, scoreB = 0, scoreC = 0, scoreD = 0;
+  let maxA = 0, maxB = 0, maxC = 0, maxD = 0;
+  Object.entries(AXES).forEach(([key, ax]) => {
+    ax.items.forEach(item => {
+      const w = trustWeight[item.trust];
+      const max = 5 * w; // 正規化用
+      if (key === 'A') { maxA += max; if (state.checks[item.id]) scoreA += 5 * w; }
+      else if (key === 'B') { maxB += max; if (state.checks[item.id]) scoreB += 5 * w; }
+      else if (key === 'C') { maxC += max; if (state.checks[item.id]) scoreC += 5 * w; }
+      else if (key === 'D') { maxD += max; if (state.checks[item.id]) scoreD += 5 * w; }
+    });
+  });
+  // 0-100スケール
+  const sA = Math.round(scoreA / maxA * 100);
+  const sB = Math.round(scoreB / maxB * 100);
+  const sC = Math.round(scoreC / maxC * 100);
+  const sD = Math.round(scoreD / maxD * 100);
+
+  // 脈ありスコア（加重平均）
+  const myakuScore = sA * 0.20 + sB * 0.25 + sC * 0.25 + sD * 0.30;
+
+  // アクション数
+  const actionCount = state.actions.filter(a => a !== 'none').length;
+
+  // 成就確率
+  const rawProb = 10 + (myakuScore / 100) * 75 + (actionCount / 7) * 10 + (state.feel / 100) * 5;
+  const prob = Math.min(92, Math.max(10, Math.round(rawProb)));
+
+  // タイミングスコア
+  const timingScore = Math.round(
+    sD * 0.4 + sA * 0.2 + (actionCount / 7 * 100) * 0.2 + state.intent * 0.2
+  );
+
+  // フェーズ
+  let phaseIdx, phase;
+  if (myakuScore >= 75) {
+    phaseIdx = 4;
+    phase = { name: '告白適正期', desc: '相手からの好意サインが複数重なっています。告白のタイミングを考える段階です。' };
+  } else if (myakuScore >= 55) {
+    phaseIdx = 3;
+    phase = { name: '脈あり確認期', desc: '好意のサインが出ています。もう少し関係を深めながら確認する段階です。' };
+  } else if (myakuScore >= 35) {
+    phaseIdx = 2;
+    phase = { name: '接近期', desc: '関係が少しずつ近くなっています。もっと接触回数と会話を増やす段階です。' };
+  } else if (myakuScore >= 15) {
+    phaseIdx = 1;
+    phase = { name: '準備期', desc: 'まだ関係が浅い段階です。存在を認知させる・共通点を作ることが先決です。' };
+  } else {
+    phaseIdx = 0;
+    phase = { name: '認知段階', desc: '相手との接点がまだ少ない状態です。まず接触の機会を増やすことから始めます。' };
+  }
+
+  // シナリオ
+  const scSuccess = prob;
+  const scFriend = Math.round((100 - prob) * 0.6);
+  const scBad = 100 - scSuccess - scFriend;
+
+  // 最高軸
+  const axes = [
+    { key: 'A', score: sA, name: AXES.A.name },
+    { key: 'B', score: sB, name: AXES.B.name },
+    { key: 'C', score: sC, name: AXES.C.name },
+    { key: 'D', score: sD, name: AXES.D.name },
+  ];
+  const sortedAxes = [...axes].sort((a, b) => b.score - a.score);
+
+  return {
+    sA, sB, sC, sD, myakuScore: Math.round(myakuScore),
+    prob, timingScore, phaseIdx, phase,
+    scSuccess, scFriend, scBad,
+    axes, sortedAxes, actionCount,
+  };
+}
+
+function updateLive() {
+  const r = calc();
+  $('#miniVal').textContent = r.prob;
+  $('#miniFill').style.width = r.prob + '%';
+}
+
+/* フェーズSVG */
+function renderPhaseBar(r) {
+  const svg = $('#phaseSvg');
+  const phases = ['認知段階', '準備期', '接近期', '脈あり確認期', '告白適正期'];
+  const W = 720, H = 140;
+  const padX = 60;
+  const stepW = (W - padX * 2) / (phases.length - 1);
+  let html = '';
+  // 線
+  html += `<line x1="${padX}" y1="60" x2="${W - padX}" y2="60" stroke="#0c2340" stroke-width="3"/>`;
+  // ハイライト線（左から現在位置まで）
+  const currentX = padX + r.phaseIdx * stepW;
+  html += `<line x1="${padX}" y1="60" x2="${currentX}" y2="60" stroke="#38bdf8" stroke-width="3" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" fill="freeze" begin="0.3s"/>
+  </line>`;
+
+  phases.forEach((name, i) => {
+    const x = padX + i * stepW;
+    const isCurrent = i === r.phaseIdx;
+    const isPast = i < r.phaseIdx;
+    const dotColor = isCurrent ? '#fbbf24' : isPast ? '#38bdf8' : '#0c2340';
+    const dotR = isCurrent ? 12 : 6;
+    const dotStroke = isCurrent ? '#0a0a0f' : 'transparent';
+
+    html += `<circle cx="${x}" cy="60" r="${dotR}" fill="${dotColor}" stroke="${dotStroke}" stroke-width="2">
+      ${isCurrent ? `<animate attributeName="r" values="12;16;12" dur="1.6s" repeatCount="indefinite"/>` : ''}
+    </circle>`;
+    html += `<text x="${x}" y="100" fill="${isCurrent ? '#fbbf24' : '#94a3b8'}" font-size="${isCurrent ? '12' : '11'}" font-weight="${isCurrent ? '900' : '600'}" text-anchor="middle">${name}</text>`;
+    if (isCurrent) {
+      html += `<text x="${x}" y="40" fill="#fbbf24" font-size="11" font-weight="900" text-anchor="middle" font-family="Orbitron" opacity="0">
+        ▼ YOU
+        <animate attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze" begin="1.2s"/>
+      </text>`;
+      html += `<text x="${x}" y="120" fill="#7dd3fc" font-size="10" text-anchor="middle" font-family="Orbitron" opacity="0">
+        現在のフェーズ
+        <animate attributeName="opacity" from="0" to="1" dur="0.5s" fill="freeze" begin="1.4s"/>
+      </text>`;
+    }
+  });
+  svg.innerHTML = html;
+}
+
+/* レーダーSVG */
+function renderRadar(r) {
+  const svg = $('#radarSvg');
+  const cx = 170, cy = 150, R = 105;
+  const angles = [-Math.PI / 2, 0, Math.PI / 2, Math.PI]; // 上・右・下・左
+  const labels = ['👀 接触', '💬 会話', '💓 感情', '🏃 変化'];
+  const scores = [r.sA, r.sB, r.sC, r.sD];
+  const point = (i, val) => {
+    const a = angles[i];
+    const rad = (val / 100) * R;
+    return [cx + Math.cos(a) * rad, cy + Math.sin(a) * rad];
+  };
+
+  let html = '';
+  // グリッド（4段階・正方形回転）
+  for (let g = 1; g <= 4; g++) {
+    const scale = g / 4;
+    const pts = [0, 1, 2, 3].map(i => {
+      const [x, y] = point(i, scale * 100);
+      return `${x},${y}`;
+    }).join(' ');
+    html += `<polygon points="${pts}" fill="none" stroke="#0c2340" stroke-width="0.8" opacity="${0.4 + scale * 0.3}"/>`;
+  }
+  // 軸ライン
+  for (let i = 0; i < 4; i++) {
+    const [x, y] = point(i, 100);
+    html += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="#0c2340" stroke-width="0.8" opacity="0.5"/>`;
+  }
+
+  // 値ポリゴン
+  const valPts = [0, 1, 2, 3].map(i => {
+    const [x, y] = point(i, scores[i]);
+    return `${x},${y}`;
+  }).join(' ');
+  html += `
+    <polygon points="${valPts}" fill="rgba(56, 189, 248, 0.30)" stroke="#38bdf8" stroke-width="2.5" stroke-linejoin="round" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="1.2s" fill="freeze" begin="0.3s"/>
+    </polygon>
+  `;
+
+  // 頂点ドット
+  for (let i = 0; i < 4; i++) {
+    const [x, y] = point(i, scores[i]);
+    html += `<circle cx="${x}" cy="${y}" r="0" fill="#fbbf24" stroke="#0a0a0f" stroke-width="2">
+      <animate attributeName="r" from="0" to="6" dur="0.5s" fill="freeze" begin="${1.0 + i * 0.1}s"/>
+    </circle>`;
+  }
+
+  // ラベル
+  const offsets = [[0, -18], [30, 4], [0, 28], [-30, 4]];
+  for (let i = 0; i < 4; i++) {
+    const [x, y] = point(i, 100);
+    const [ox, oy] = offsets[i];
+    const isTop = r.sortedAxes[0].key === ['A', 'B', 'C', 'D'][i];
+    const isWeak = r.sortedAxes[3].key === ['A', 'B', 'C', 'D'][i];
+    const color = isTop ? '#22c55e' : isWeak ? '#fb923c' : '#94a3b8';
+    html += `<text x="${x + ox}" y="${y + oy}" fill="${color}" font-size="11" font-weight="700" text-anchor="middle">${labels[i]}</text>`;
+    html += `<text x="${x + ox}" y="${y + oy + 12}" fill="#fbbf24" font-size="10" font-weight="800" text-anchor="middle" font-family="Orbitron">${scores[i]}</text>`;
+  }
+
+  svg.innerHTML = html;
+
+  // 軸スコアセル
+  $('#axisScores').innerHTML = ['A', 'B', 'C', 'D'].map((k, i) => {
+    const sc = scores[i];
+    const isTop = r.sortedAxes[0].key === k;
+    const isWeak = r.sortedAxes[3].key === k;
+    const cls = isTop ? 'strong' : isWeak ? 'weak' : '';
+    const badge = isTop ? '<span class="ax-badge">✓ 強み</span>' : isWeak ? '<span class="ax-badge">📌 強化</span>' : '';
+    return `
+      <div class="axis-cell ${cls}">
+        ${badge}
+        <div class="ax-name">${labels[i]}</div>
+        <div class="ax-val">${sc}<span class="denom">/100</span></div>
+      </div>
+    `;
+  }).join('');
+}
+
+/* アクション提案 */
+const ACTIONS = {
+  4: {
+    main: '🟢 2人きりで会える機会を作り、そこで告白する',
+    detail: '今の状態は<strong style="color:#fbbf24;">告白に適したフェーズ</strong>です。グループではなく、2人だけの時間を意図的に作ることが成功確率を上げる最も効果的なアクション。告白の言葉より「場所・タイミング・2人きりかどうか」の方が成功率に影響します。',
+  },
+  3: {
+    main: '🔵 相手との2人きりの時間を1回作る',
+    detail: 'グループでの関係はできています。次は<strong style="color:#fbbf24;">「2人きりの時間」を1回だけ作る</strong>ことが最優先。映画・カフェなど、理由はなんでもいいです。反応を見てから告白を判断しても遅くありません。',
+  },
+  2: {
+    main: '🟡 週1回、相手と1対1で話せる話題を1つ用意する',
+    detail: 'まず接触回数と会話の質を上げる段階です。告白より前に、<strong style="color:#fbbf24;">「2人で話せる関係」を作ること</strong>が先決。共通の話題・相手が好きなものへの興味を示すことから始めます。',
+  },
+  1: {
+    main: '⏳ 相手と週1回以上話せる状況を作る',
+    detail: 'まずは<strong style="color:#fbbf24;">接触回数を増やすこと</strong>が最優先。告白は「関係ができた後」のアクションです。今は「存在を認知させ、会話の機会を増やす」段階です。',
+  },
+  0: {
+    main: '🌱 まず接点を作ることから始める',
+    detail: '相手との接触がまだほぼない状態です。<strong style="color:#fbbf24;">SNSフォロー・共通のコミュニティへの参加・友人経由の紹介</strong>など、まず「会える状況」「話せる状況」を作ることが第一歩です。',
+  },
+};
+
+/* タイミング判定 */
+function getTimingJudge(s) {
+  if (s >= 70) return { cls: 'lv-go', text: '🟢 告白適正期', msg: '今が動くタイミング。<strong style="color:#22c55e;">2人きりで会える機会</strong>を作って告白しましょう。' };
+  if (s >= 50) return { cls: 'lv-prep', text: '🔵 もう少し準備', msg: '関係を<strong style="color:#7dd3fc;">もう1段深めてから</strong>告白すると、成就確率がさらに上がります。' };
+  if (s >= 30) return { cls: 'lv-build', text: '🟡 関係を深める段階', msg: 'まず<strong style="color:#fbbf24;">接触回数と会話の質</strong>を上げる段階です。告白の前にやることがあります。' };
+  return { cls: 'lv-wait', text: '⏳ 土台作りの段階', msg: 'まだ早い段階です。<strong style="color:#fdba74;">関係の土台</strong>を作ることが先決。焦らず接点を増やしていきましょう。' };
+}
+
+/* 描画 */
+function renderResults() {
+  const r = calc();
+
+  // ① メインスコア
+  const mc = $('#mainCard');
+  const mp = $('#mainProb');
+  mc.className = 'main-card';
+  mp.className = 'main-prob';
+  if (r.prob >= 50) {
+    mc.classList.add('lv-high');
+    mp.classList.add('lv-high');
+  } else if (r.prob < 30) {
+    mc.classList.add('lv-low');
+    mp.classList.add('lv-low');
+  }
+  animateNum($('#mainProb'), r.prob, 1500, '<span class="pct">%</span>');
+  const diff = r.prob - 53;
+  const cls = diff > 0 ? 'high' : diff < 0 ? 'low' : '';
+  const sign = diff > 0 ? '+' : '';
+  $('#vsBase').innerHTML = `ベースの告白成功率（53%）より <span class="vs-num ${cls}">${sign}${diff}%</span>`;
+  $('#mainMsg').innerHTML = r.prob >= 50
+    ? '💡 <strong style="color:#22c55e;">チャンスはあります</strong>。準備次第で確率はさらに変わります。'
+    : r.prob >= 30
+    ? '💡 まだ <strong style="color:#fbbf24;">土台を作る段階</strong> ですが、行動次第で数字は変えられます。'
+    : '💡 今は <strong style="color:#7dd3fc;">関係の土台を作る段階</strong>。焦らず、できることから始めましょう。';
+
+  // ② フェーズバー
+  renderPhaseBar(r);
+  $('#phaseDesc').innerHTML = `<strong>現在：${r.phase.name}</strong><br>${r.phase.desc}`;
+
+  // ③ レーダー
+  renderRadar(r);
+
+  // ④ タイミング
+  animateNum($('#timingVal'), r.timingScore, 1300);
+  const tj = getTimingJudge(r.timingScore);
+  $('#timingJudge').className = 'timing-judge ' + tj.cls;
+  $('#timingJudge').textContent = tj.text;
+  $('#timingMsg').innerHTML = tj.msg;
+
+  // ⑤ シナリオ
+  animateNum($('#scSuccess'), r.scSuccess, 1200);
+  animateNum($('#scFriend'), r.scFriend, 1200);
+  animateNum($('#scBad'), r.scBad, 1200);
+  setTimeout(() => {
+    $('#scSuccessBar').style.width = r.scSuccess + '%';
+    $('#scFriendBar').style.width = r.scFriend + '%';
+    $('#scBadBar').style.width = r.scBad + '%';
+  }, 200);
+
+  // ⑥ 最高軸
+  const topAx = r.sortedAxes[0];
+  $('#topAxisName').textContent = topAx.name;
+  const changeMsgs = {
+    A: '相手があなたとの<strong>接触機会</strong>を意識的に作っている可能性。物理的距離の縮め方は好意の最もシンプルなサイン。',
+    B: '<strong>会話の質と量</strong>に好意が出ている可能性。話を続けたい・あなたを知りたい意欲が見えます。',
+    C: '<strong>感情のリアクション</strong>が好意的。あなたといる時の感情の動きが他の人と違う可能性があります。',
+    D: '<strong>最近の関係性の変化</strong>が最も強いサイン。意識的な行動変化は好意の可能性を示唆します。',
+  };
+  $('#changeBody').innerHTML = `
+    ${changeMsgs[topAx.key]}
+    <div class="alt">ただし：友達として楽しくなってきた・グループ内のポジション変化でも同じ変化が起きることがあります。</div>
+  `;
+
+  // ⑦ アクション
+  const ac = ACTIONS[r.phaseIdx];
+  $('#actionMain').innerHTML = ac.main;
+  $('#actionDetail').innerHTML = ac.detail;
+}
+
+function animateNum(el, target, duration, suffix) {
+  const sourceText = String(el.textContent).replace(/[^0-9.-]/g, '');
+  const start = parseFloat(sourceText) || 0;
+  const startTime = performance.now();
+  function step(now) {
+    const t = Math.min(1, (now - startTime) / duration);
+    const eased = 1 - Math.pow(1 - t, 3);
+    const cur = Math.round(start + (target - start) * eased);
+    if (suffix) el.innerHTML = `${cur}${suffix}`;
+    else el.textContent = cur;
+    if (t < 1) requestAnimationFrame(step);
+    else {
+      if (suffix) el.innerHTML = `${target}${suffix}`;
+      else el.textContent = target;
+    }
+  }
+  requestAnimationFrame(step);
+}
+
+/* 計算ボタン */
+$('#calcBtn').addEventListener('click', () => {
+  const isFirst = !$('#resultArea').classList.contains('show');
+  $('#resultArea').classList.add('show');
+  $('#ctaWrap').classList.add('calculated');
+  $('#calcBtn').textContent = '↻ 再診断する';
+  renderResults();
+  if (isFirst) setTimeout(() => $('#mainCard').scrollIntoView({ behavior: 'smooth', block: 'start' }), 200);
+});
+
+/* シェア */
+function buildShare() {
+  const r = calc();
+  return `【片思い成就確率診断】
+
+成就確率：${r.prob}%（ベース平均53%）
+現在のフェーズ：${r.phase.name}
+告白タイミング：${r.timingScore}/100
+
+シナリオ予測：
+✅ 成功 ${r.scSuccess}% / 😊 友達継続 ${r.scFriend}% / 😟 距離 ${r.scBad}%
+
+#片思い成就確率診断 #恋愛診断`;
+}
+
+$('#copyBtn').addEventListener('click', async () => {
+  try { await navigator.clipboard.writeText(buildShare()); showToast('COPIED'); }
+  catch (e) {
+    const ta = document.createElement('textarea'); ta.value = buildShare();
+    document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+    showToast('COPIED');
+  }
+});
+$('#tweetBtn').addEventListener('click', () => {
+  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(buildShare())}&url=${encodeURIComponent(location.href)}`, '_blank', 'noopener');
+});
+
+function showToast(msg) {
+  const t = $('#toast'); t.textContent = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 1800);
+}
+
+/* 初期化 */
+renderAxes();
+updateLive();
+setTimeout(() => {
+  const ov = document.getElementById('bootOverlay');
+  if (ov) ov.remove();
+}, 2500);
+</script>
+</body>
+</html>
